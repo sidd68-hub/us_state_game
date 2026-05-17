@@ -19,10 +19,11 @@ while len(guessed_states) < 50:
     if answer_state is None:
         break
 
-    if answer_state is "Exit":
-        for item in all_states:
-            if item not in guessed_states:
-                missing_states.append(item)
+    if answer_state == "Exit":
+        missing_states = [item for item in all_states if item not in missing_states]
+        # for item in all_states:
+        #     if item not in guessed_states:
+        #         missing_states.append(item)
            
         data_dic = {
     "Missing State": missing_states
